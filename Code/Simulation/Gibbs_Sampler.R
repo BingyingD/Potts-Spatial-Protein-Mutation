@@ -10,17 +10,6 @@ Gibbs.func <- function(z,Theta,Gamma,P,K){
   return(z)
 }
 
-W_generate.func <- function(P,sp){
-  test <- matrix(rbeta(P^2,4,2),P)
-  test <- (test+t(test))/2
-  diag(test) <- 0
-  test2 <- matrix(runif(sp^2,0,0.1),sp)
-  test2 <- (test2+t(test2))/2
-  diag(test2) <- 0
-  test[1:sp,1:sp] <- test2
-  return(test)
-}
-
 data_generate.func <- function(n,K,P,Gamma,R){
   # Gamma: P * K(P-1)K
   # initial
@@ -71,6 +60,5 @@ amino <- apply(data, 2, function(x){sort(unique(x))})
 l <- c(0,sapply(amino,length))
 amino <- unlist(amino)
 X <- X_matrix(data,site_number)
-W <- W_generate.func(P,sp)
 wild_type <- rep(1,P)
 

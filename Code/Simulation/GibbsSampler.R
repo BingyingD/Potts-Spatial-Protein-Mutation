@@ -45,6 +45,7 @@ X_matrix <- function(data,site_number){
   return(as.matrix(X))
 }
 
+# toy example
 n <- 1000
 K <- 20
 P <- 25
